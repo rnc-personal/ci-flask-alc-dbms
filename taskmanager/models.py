@@ -9,7 +9,6 @@ class Category(db.Model):
 
     def __repr__(self):
         # __repr__ to represent itself in the form of a string
-        # self is a python version of 'this' in JS. 
         return self.category_name
 
 
@@ -21,9 +20,6 @@ class Task(db.Model):
     is_urgent = db.Column(db.Boolean, default=False, nullable=False)
     due_date = db.Column(db.Date, nullable=False)
     category_id = db.Column(db.Integer, db.ForeignKey("category.id", ondelete="CASCADE"), nullable=False)
-
-    #  Cascade Means tha that when a 'parent' table is removed, the associated children will also be deleted.
-    # "When Category 2 no longer exists, the records that are a part of it should also be removed."
 
     def __repr__(self):
         # __repr__ to represent itself in the form of a string
